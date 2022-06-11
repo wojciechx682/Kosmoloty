@@ -50,6 +50,7 @@ public class Kosmoloty
     public static ArrayList<String> Vx = new ArrayList<String>();
     public static ArrayList<String> Vy = new ArrayList<String>();
     public static int lines = 0;
+    
     static boolean validate_name(String name)
     {
         if(!is_alpha_numeric(name) || !proper_length(name) || !is_empty(name))
