@@ -533,11 +533,6 @@ public class Kosmoloty
         if(has_duplicates_in_rows(distances))
         {
             System.out.println("remis");
-
-            for(int k = 0; k < distances.length; k++)
-            {
-                System.out.println(distances[k]);
-            }
         }
         else
         {
