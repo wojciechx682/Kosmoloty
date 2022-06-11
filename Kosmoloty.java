@@ -1,5 +1,5 @@
 import java.io.*;
-import java.util.ArrayList; // globalna tablica imion
+import java.util.ArrayList; 
 import java.util.Set;
 import java.util.HashSet;
 
