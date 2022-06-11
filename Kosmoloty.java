@@ -52,20 +52,10 @@ public class Kosmoloty
     public static int lines = 0;
     static boolean validate_name(String name)
     {
-        if(!is_alpha_numeric(name))
+        if(!is_alpha_numeric(name) || !proper_length(name) || !is_empty(name))
         {
             return false;
-        }
-
-        if(!proper_length(name))
-        {
-            return false;
-        }
-
-        if(!is_empty(name))
-        {
-            return false;
-        }
+        }       
 
         names.add(name);
 
@@ -113,15 +103,10 @@ public class Kosmoloty
         int t_x = Integer.parseInt(args[0]);
         int t_y = Integer.parseInt(args[1]);
 
-        if(!(t_x > 0 && t_x <= 100000))
+        if((!(t_x > 0 && t_x <= 100000)) || (!(t_y > 0 && t_y <= 100000)))
         {
             return false;
-        }
-
-        if(!(t_y > 0 && t_y <= 100000))
-        {
-            return false;
-        }
+        }      
 
         return true;
     }
@@ -254,16 +239,14 @@ public class Kosmoloty
         boolean correct_input = true;
 
         if((args[0].equals("-1")) || (args[1].equals("-1")) || (filename.equals("-1")))
-        {
-            correct_input = false;
+        {            
             System.out.println("klops");
             return 1;
         }
         else
         {
             if(!(is_numeric_arg(args[0])) || !(is_numeric_arg(args[1])))
-            {
-                correct_input = false;
+            {                
                 System.out.println("klops");
                 return 1;
             }
@@ -303,52 +286,16 @@ public class Kosmoloty
                     correct_input = false;
                 }
 
-                if(!is_numeric(parts[1]))
-                {
-                    correct_input = false;
+                if((!is_numeric(parts[1])) || (!is_numeric(parts[2])) || (!is_numeric(parts[3])) || (!is_numeric(parts[4])))
+                {                  
                     System.out.println("klops");
                     return 1;
                 }
 
-                if(!is_numeric(parts[2]))
+                if((!validate_speed(parts[1])) || (!validate_speed(parts[2])) || (!(validate_position(parts[3], wielkosc_torusa_x))) || (!(validate_position(parts[4], wielkosc_torusa_y))))
                 {
                     correct_input = false;
-                    System.out.println("klops");
-                    return 1;
-                }
-
-                if(!validate_speed(parts[1]))
-                {
-                    correct_input = false;
-                }
-
-                if(!validate_speed(parts[2]))
-                {
-                    correct_input = false;
-                }
-
-                if(!is_numeric(parts[3]))
-                {
-                    correct_input = false;
-                    System.out.println("klops");
-                    return 1;
-                }
-
-                if(!is_numeric(parts[4]))
-                {
-                    correct_input = false;
-                    System.out.println("klops");
-                    return 1;
-                }
-
-                if(!(validate_position(parts[3], wielkosc_torusa_x)))
-                {
-                    correct_input = false;
-                }
-                if(!(validate_position(parts[4], wielkosc_torusa_y)))
-                {
-                    correct_input = false;
-                }
+                }         
 
                 if(!correct_input)
                 {
@@ -363,12 +310,7 @@ public class Kosmoloty
                 Vy.add(parts[2]);
             }
 
-            if(lines == 0)
-            {
-                correct_input = false;
-            }
-
-            if(!duplicate_names(names))
+            if((lines == 0) || (!duplicate_names(names)))
             {
                 correct_input = false;
             }
@@ -489,10 +431,6 @@ public class Kosmoloty
                 {
                     xy_positions[Integer.parseInt(removed_rows.get(ii))][0] = -1;
                     xy_positions[Integer.parseInt(removed_rows.get(ii))][1] = -1;
-                }
-
-                for (int ii = 0; ii < removed_rows.size(); ii++)
-                {
                     distances[Integer.parseInt(removed_rows.get(ii))] = -1;
                 }
 
