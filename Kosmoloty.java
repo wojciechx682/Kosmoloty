@@ -1,5 +1,5 @@
 import java.io.*;
-import java.util.ArrayList; 
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashSet;
 
@@ -50,13 +50,13 @@ public class Kosmoloty
     public static ArrayList<String> Vx = new ArrayList<String>();
     public static ArrayList<String> Vy = new ArrayList<String>();
     public static int lines = 0;
-    
+
     static boolean validate_name(String name)
     {
         if(!is_alpha_numeric(name) || !proper_length(name) || !is_empty(name))
         {
             return false;
-        }       
+        }
 
         names.add(name);
 
@@ -107,7 +107,7 @@ public class Kosmoloty
         if((!(t_x > 0 && t_x <= 100000)) || (!(t_y > 0 && t_y <= 100000)))
         {
             return false;
-        }      
+        }
 
         return true;
     }
@@ -150,7 +150,7 @@ public class Kosmoloty
             {
                 for (int otherRow = row + 1; otherRow < inArray.length; otherRow++)
                 {
-                    if ((c1 == inArray[otherRow]))
+                    if ((c1 == inArray[otherRow]) && (inArray[otherRow] != -1))
                     {
                         return true;
                     }
@@ -163,7 +163,7 @@ public class Kosmoloty
         }
         return false;
     }
-    
+
     public static boolean all_destroyed(int[] inArray)
     {
         for (int row = 0; row < inArray.length; row++)
@@ -264,14 +264,14 @@ public class Kosmoloty
         boolean correct_input = true;
 
         if((args[0].equals("-1")) || (args[1].equals("-1")) || (filename.equals("-1")))
-        {            
+        {
             System.out.println("klops");
             return 1;
         }
         else
         {
             if(!(is_numeric_arg(args[0])) || !(is_numeric_arg(args[1])))
-            {                
+            {
                 System.out.println("klops");
                 return 1;
             }
@@ -312,7 +312,7 @@ public class Kosmoloty
                 }
 
                 if((!is_numeric(parts[1])) || (!is_numeric(parts[2])) || (!is_numeric(parts[3])) || (!is_numeric(parts[4])))
-                {                  
+                {
                     System.out.println("klops");
                     return 1;
                 }
@@ -320,7 +320,7 @@ public class Kosmoloty
                 if((!validate_speed(parts[1])) || (!validate_speed(parts[2])) || (!(validate_position(parts[3], wielkosc_torusa_x))) || (!(validate_position(parts[4], wielkosc_torusa_y))))
                 {
                     correct_input = false;
-                }         
+                }
 
                 if(!correct_input)
                 {
@@ -494,7 +494,7 @@ public class Kosmoloty
         }
 
         if(has_duplicates_in_rows(distances) || all_destroyed(distances))
-        {
+        {        
             System.out.println("remis");
         }
         else
