@@ -163,6 +163,30 @@ public class Kosmoloty
         }
         return false;
     }
+    
+    public static boolean all_destroyed(int[] inArray)
+    {
+        for (int row = 0; row < inArray.length; row++)
+        {
+            int c1 = inArray[row];
+
+            if(row+1 <= inArray.length)
+            {
+                for (int otherRow = row + 1; otherRow < inArray.length; otherRow++)
+                {
+                    if (!(c1 == inArray[otherRow]))
+                    {
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                return true;
+            }
+        }
+        return true;
+    }
 
     public static ArrayList<String> indexes_of_duplicated_rows(int[][] inArray, int row_indeks)
     {
@@ -469,7 +493,7 @@ public class Kosmoloty
             }
         }
 
-        if(has_duplicates_in_rows(distances))
+        if(has_duplicates_in_rows(distances) || all_destroyed(distances))
         {
             System.out.println("remis");
         }
