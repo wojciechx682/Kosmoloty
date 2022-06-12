@@ -389,7 +389,7 @@ public class Kosmoloty
         boolean wszystkie_zniszczone = true;
 
         for (int i = 0; i < 86400; i++)
-        {
+        {           
             for (int row = 0; row < xy_positions.length; row++)
             {
                 for (int col = 0; col < xy_positions[row].length; col++)
@@ -494,7 +494,7 @@ public class Kosmoloty
         }
 
         if(has_duplicates_in_rows(distances) || all_destroyed(distances))
-        {        
+        {
             System.out.println("remis");
         }
         else
