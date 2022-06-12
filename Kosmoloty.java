@@ -150,7 +150,7 @@ public class Kosmoloty
             {
                 for (int otherRow = row + 1; otherRow < inArray.length; otherRow++)
                 {
-                    if ((c1 == inArray[otherRow]) && (inArray[otherRow] != -1))
+                    if ((c1 == inArray[otherRow]))
                     {
                         return true;
                     }
