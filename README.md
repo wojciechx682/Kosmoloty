@@ -6,7 +6,7 @@ java Kosmoloty 1000  10000 filename.txt
 
 java name      t_x   t_y   filename
 
-
+#######################################
 
 Here is a brief summary of each method:
 
